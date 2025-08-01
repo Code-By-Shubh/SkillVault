@@ -10,7 +10,6 @@ if(newSkillForm){
     const goal = document.getElementById("goal").value;
   try {     
     const res = await axios.post("newSkill", { skillName, description, progress, category, goal });
-    alert("Skill added successfully!");
     window.location.href="/dashboard";
   } catch (err) {
     console.error("Error adding skill:", err);
@@ -37,7 +36,6 @@ if(editForm){
       alert(res.data.error);
     }
     else{
-      alert("Skill updated successfully!");
       window.location.href = "/dashboard";
     }
   } catch (err) {
@@ -72,7 +70,6 @@ if(registerForm){
         }
 
     } catch (error) {
-        console.log("Axios error:", error);
         alert("Something went wrong. Please try again.");
     }
 });
@@ -106,7 +103,6 @@ if(loginForm){
         }
 
     } catch (error) {
-        console.log("Axios error:", error);
         alert("Something went wrong. Please try again.");
     }
 });
@@ -125,12 +121,10 @@ if(loginForm){
           if (data.error) {
           alert("❌ " + data.error);
         } else {
-          alert("✅ successful.");
           location.reload(); // Refresh the page to reflect changes
         }
         } catch (error) {
           alert('❌ Server error occured');
-          console.err(error);
         }
         
         
@@ -154,7 +148,6 @@ if(loginForm){
       if (data.error) {
         alert("❌ " + data.error);
       } else {
-        alert("✅ Skill deleted successfully.");
         location.reload(); // Refresh the page to reflect changes
       }
     });
