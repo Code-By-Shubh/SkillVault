@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillVault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fly1">
+            <div class="fly2">
+                
+            <div class="fly5">⚛️ SKILLVAULT</div>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <div class="menu-wrapper" id="menu-wrapper">
+            <nav class="fly3" id="main-nav">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/skills">My Skills</a>
+                <a href="/new">Add Skills</a>
+            </nav>
+            <div class="fly6" id="auth-links">
+                <a href="/login">LOG IN</a>
+                <a href="/register" class="fly7">SIGN UP</a>
+            </div>
+            </div>
+        </div>
+        <div class="fly9">
+            <div class="fly4">
+            <img src="./photo1.png" alt="">
+        </div>
+        <div class="fly8">
+            <p class="fly10"> TRACK. MASTER. EVOLVE.</p>
+            <p class="fly11"> Whether you're aiming to level up your coding, design,
+                or soft skills — we’re here to help you track progress, build habits, and stay consistent.
+            </p>
+            <div class="fly12">
+                <button class="fly14" onclick="window.location.href='/register'">
+                    <span>SIGN UP</span>
+                </button>
+                <p>
+                    <span class="fly13">
+                        Already a member? 
+                        <a href="/login">Log In</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        </div>
+        <div class="fly15">
+            <div class="fly17 fly40">
+                <div >
+                    <p class="fly19 fly41">SET GOALS.</p>
+                    <p class="fly19 fly41">TRACK SKILLS.</p>
+                    <p class="fly19 fly41">GROW CONSISTENTLY.</p>
+                </div>
+                
+                <div class="fly18">
+                    <p>
+                Easily log your learning progress, organize resources, and track your growth across any skill — from coding to design and beyond.
+                    </p>
+                </div>
+                <div>
+                    <button class="fly14 fly20" onclick="window.location.href='/register'">
+                        <span>GET STARTED</span>
+                    </button>
+                </div>
+            
+            </div>
+        <div class="fly42">
+            <img class="fly16" src="./photo2.jpg" alt="">
+        </div>
+        </div>
+        <div class="fly17">
+            <div>
+                <p class="fly19">PUSH YOUR POTENTIAL</p>
+            </div>
+            <div class="fly21 fly18">
+                <p>
+                    Challenge yourself to master new skills.
+Stay motivated with personal milestones and consistent progress tracking.
+                </p>
+            </div>
+            <button class="fly14 fly20" onclick="window.location.href='/register'">
+                <span>
+                    START A NEW SKILL
+                </span>
+            </button>
+        </div>
+        <div class="fly22">
+            <div class="fly23">
+                <div class="fly24">
+                    <div>
+                        <span class="fly25">📘</span>
+                    </div>
+                    <div>
+                        <p class="fly26">SKILLS LOGGED</p>
+                    </div>
+                    <div>
+                        <p class="fly27">1,258</p>
+                    </div>
+                    <div>
+                        <p class="fly28">total</p>
+                    </div>
+                </div>
+                <div class="fly24">
+                    <div>
+                        <span class="fly25">🛠️</span>
+                    </div>
+                    <div>
+                        <p class="fly26">RESOURCES ADDED</p>
+                    </div>
+                    
+                    <div>
+                        <p class="fly27">4,712</p>
+                    </div>
+                    <div>
+                        <p class="fly28">links shared</p>
+                    </div>
+                </div>
+                <div class="fly24">
+                    <div>
+                        <span class="fly25">⏱️</span>
+                    </div>
+                    <div>
+                        <p class="fly26">HOURS INVESTED</p>
+                    </div>
+                    <div>
+                        <p class="fly27">9,320</p>
+                    </div>
+                    <div>
+                        <p class="fly28">total hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="fly29">
+                <div class="fly30">
+                <div class="fly31">
+                    <div class="fly5">SKILLVAULT</div>
+                </div>
+                <ul class="fly32">
+                    <li>
+                        <p class="fly33">Help</p>
+                    </li>
+                    <li class="fly34">
+                        <a href="/login">Log In / Register</a>
+                    </li>
+                    <li class="fly34">
+                        <a href="/privacy">Privacy Policy</a>
+                    </li>
+                    <li class="fly34">
+                        <a href="/support">Support</a>
+                    </li>
+                </ul>
+                <ul class="fly32">
+                    <li>
+                        <p class="fly33">About</p>
+                    </li>
+                    <li class="fly34">
+                        <a href="/Whyskillvault">Why SkillVault?</a>
+                    </li>
+                    <li class="fly34">
+                        <a href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            <div class="fly35">
+                <div class="fly36">
+                    <div class="fly39">SKILLVAULT</div>
+                    <div class="fly37">
+                    <div>© All rights reserved</div> 
+                    <div>Privacy Policy</div>
+                    <div class="fly38">/</div>
+                    <div>Terms of Use</div>
+                    <div class="fly38">/</div>
+                    <div>Cookie Policy</div>
+                    <div>Manage Cookie Preferences</div>
+                    <div class="fly38">/</div>
+                    <div>WA Privacy Notice</div>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu-wrapper');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+</script>
+</body>
+</html>

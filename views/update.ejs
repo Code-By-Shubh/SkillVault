@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+        <div>
+        <div class="fly59">
+            
+            <form id="editForm" class="skill-form">
+              <h1>Update Skill</h1>
+              <input class="fly60 fly63" type="text" id="skillName" name="skillName" value="<%= skill.name %>" required>    
+              <input class="fly60 fly63" type="text" id=description name="description" value="<%= skill.description %>" required>
+              <input class="fly60 fly63" type="text" id="category" name="category" value="<%= skill.category %>" required>
+              <input class="fly60 fly63" type="number" id="progress" name="progress" value="<%= skill.progress %>" required>
+              <input class="fly60 fly63" type="text" id="goal" name="goal" value="<%= skill.goal %>" required>
+              <button data-id="<%= skill.id %>" id="updateButton" type="submit">Update Skill</button>
+            </form>
+            
+    </div>
+    </div>
+    <%- include("partials/footer.ejs") %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+</html>

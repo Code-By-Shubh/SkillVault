@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillVault Gemini Chat</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #eef4fa;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 14px;
+      border-radius: 12px;
+      max-width: 80%;
+      white-space: pre-wrap;
+    }
+
+    .user {
+      align-self: flex-end;
+      background: #4a90e2;
+      color: white;
+      border-top-right-radius: 0;
+    }
+
+    .gemini {
+      align-self: flex-start;
+      background: #ffffff;
+      color: #333;
+      border-top-left-radius: 0;
+      border-left: 4px solid #4a90e2;
+    }
+
+    .input-area {
+      display: flex;
+      padding: 16px;  
+      border-top: 1px solid #ccc;
+      background: white;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 14px 20px;
+      font-size: 16px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #357acb;
+    }
+
+    .loading {
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container" id="chat"></div>
+  <div class="input-area">
+    <input type="text" id="promptInput" placeholder="Ask Gemini something..." />
+    <button onclick="askGemini()">Send</button>
+  </div>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('promptInput');
+
+    async function askGemini() {
+      const prompt = input.value.trim();
+      if (!prompt) return;
+      
+      addMessage(prompt, 'user');
+      input.value = '';
+      input.focus();
+
+      addMessage('⏳ Gemini is thinking...', 'gemini', true);
+      try {
+        const res = await fetch('/gemini', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await res.json();
+        removeLastGeminiPlaceholder();
+
+        addMessage(data.reply || '❌ No reply received.', 'gemini');
+      } catch (err) {
+        removeLastGeminiPlaceholder();
+        addMessage('🚫 Error contacting Gemini API.', 'gemini');
+        console.error(err);
+      }
+    }
+
+    function addMessage(text, sender, isPlaceholder = false) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.textContent = text;
+      if (isPlaceholder) msg.classList.add('loading');
+      chat.appendChild(msg);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function removeLastGeminiPlaceholder() {
+      //converting nodelinks to array
+      const msgs = [...document.querySelectorAll('.message.gemini.loading')];
+
+      if (msgs.length) msgs[msgs.length - 1].remove();
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') askGemini();
+    });
+  </script>
+</body>
+</html>

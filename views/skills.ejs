@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <%- include("partials/header.ejs") %>
+  <div class="fly61">
+    <div class="container">
+    <h1>My Skills</h1>
+
+    <a id="newSkillBtn" href="/new">New Skill</a>
+    
+    
+    <ul>
+      <% skills.forEach(skill=> { %>
+        <li>
+          <h2>  
+            Skill Name : <%=skill.name%>
+          </h2>
+          <h2>
+            Description : <%=skill.description %>
+          </h2>
+          <h2>
+            Progress : <%=skill.progress%>%
+          </h2>
+          <h2>
+            Category : <%=skill.category%> 
+          </h2>
+          <h2>
+            Goal : <%= skill.goal %>
+          </h2>
+          <h2>
+            Completed In : 
+            <% if (skill.completed_at) { %>
+              <%= skill.time %> hours and <%= skill.minute %> minutes
+            <% } else { %>
+              Skill Pending, Learn at fast pace
+            <% } %>
+          </h2>
+          <h2 class="fly62">
+            3 Important Topics :
+            <% if(skill.topics){ %>
+              <%= skill.topics %>
+              <% }else{ %>
+              <button  class="chat-button" data-name="<%= skill.name %>">Click</button>
+              <% } %>             
+          </h2>
+          <a class="edit" href="/update/<%= skill.id %>">Edit</a>
+          <a href="#" class="delete-button" data-id="<%= skill.id %>">Delete</a>
+        </li>
+        <hr>
+        <% }); %>
+    </ul>
+  </div>
+  </div>
+    <%- include("partials/footer.ejs") %>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+</html>

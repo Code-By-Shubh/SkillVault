@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="fly64">
+        
+        <h1>👋 Welcome back! <%= name %></h1>
+        <h2>🤖 Let AI Guide Your Learning Journey</h2>
+        <a class="ai" href="/ai">AI MODE</a>
+        <hr class="fly65">
+        <h2>🧠 Total Skills Tracked</h2>
+        <h3><%= trackedSkills %></h3>
+        <hr class="fly65">
+        <h2>✅ Total Skills Completed</h2>
+        <h3><%= doneSkills %></h3>
+        <hr class="fly65">
+        <h2>⏱️ Hours Logged</h2>
+        <h3>
+            <%= total_Hours %> hrs
+            <%= total_Minutes %> minutes
+        </h3>
+        <hr class="fly65">
+        <h2>Add Skills</h2>
+        <a class="fly66" href="/new">+</a>
+        <hr class="fly65">
+        <h2>⏳ Active Skills</h2>
+        <% if (pendingSkills.length > 0) { %>
+        <% pendingSkills.forEach(skill => { %>
+        <h3><%= skill.name %></h3>
+        <% }); %>
+        <% } else { %>
+        <h3>No pending skills</h3>
+        <% } %>
+    </div>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

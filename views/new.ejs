@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <%- include("partials/header.ejs") %>
+        <div class="fly59">
+            
+        <form id="newSkillForm" class="skill-form">
+            <h1>Add Skill</h1>
+            <input class="fly60" type="text" id="skillName" name="skillName" placeholder="Skill name" required>    
+            <input class="fly60" type="text" id=description name="description" placeholder="Description" required>
+            <input class="fly60" type="text" id="category" name="category" placeholder="Category" required>
+            <input class="fly60" type="number" id="progress" name="progress" placeholder="Progress" required>
+            <input class="fly60" type="text" id="goal" name="goal" placeholder="Goal" required>
+            <button type="submit">Add Skill</button>
+        </form>
+        
+        </div>
+        <%- include("partials/footer.ejs") %>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+</html>
