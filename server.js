@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import express from 'express'
 import bodyParser from 'body-parser';
-import pg from "pg";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import db from './database.js';
@@ -25,8 +24,6 @@ app.use(express.static('public'));
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { error } from 'console';
-// import { error } from 'console';
 const __dirname=dirname(fileURLToPath(import.meta.url));
 
 app.get('/', (req, res) => {
@@ -252,10 +249,6 @@ app.get("/update/:id",async (req,res)=>{
       console.log("error during api call");
   }
 });
-
-
-//                          ------------------->
-
 
 app.patch("/updateSkill/:id",async (req,res)=>{
   const {skillName,description,category,goal,progress}=req.body;
