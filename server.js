@@ -6,8 +6,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import db from './database.js';
 import cookieParser from "cookie-parser";
-const app = express()
-const port=3000;
+const app = express();
+const Port=process.env.PORT
 const saltRounds=10;
 import axios from 'axios';  
 import { GoogleGenAI } from "@google/genai";
@@ -369,7 +369,7 @@ app.get('/ai', (req, res) => {
   res.sendFile((__dirname+'/public/ai.html'));
 });
 
-app.listen(port,()=>{
-  console.log(`Server running on port: ${port}`)
+app.listen(Port,()=>{
+  console.log(`Server running on port: ${Port}`)
 }
 );
